@@ -37,19 +37,23 @@ def create_schedule_auto(mapping):
     days = ['sat', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri']
     periods = ['day', 'night']
     names = list(mapping.keys())
-
-    if len(names) == 2:
-        # Alternate assignments between two people
-        for i, day in enumerate(days):
-            schedule[f"{day}_day"] = {'name': names[i % 2], 'phone': mapping[names[i % 2]]}
-            schedule[f"{day}_night"] = {'name': names[(i + 1) % 2], 'phone': mapping[names[(i + 1) % 2]]}
-    else:
-        # Use round robin for more than two people
-        index = 0
-        for day in days:
-            for period in periods:
-                schedule[f"{day}_{period}"] = {'name': names[index % len(names)], 'phone': mapping[names[index % len(names)]]}
-                index += 1
+    
+    # Calculate offset for night shift (about halfway through the list)
+    night_offset = len(names) // 2
+    
+    day_index = 0
+    night_index = night_offset  # Start night shifts from a different position
+    
+    for day in days:
+        # Assign day shift (using one rotation)
+        day_name = names[day_index % len(names)]
+        schedule[f"{day}_day"] = {'name': day_name, 'phone': mapping[day_name]}
+        day_index += 1
+        
+        # Assign night shift (using a different rotation)
+        night_name = names[night_index % len(names)]
+        schedule[f"{day}_night"] = {'name': night_name, 'phone': mapping[night_name]}
+        night_index += 1
 
     save_schedule(schedule)
 
