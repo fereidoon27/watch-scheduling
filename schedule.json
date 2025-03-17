@@ -1,0 +1,58 @@
+{
+    "sat_day": {
+        "name": "mlotfi",
+        "phone": "09331835483"
+    },
+    "sat_night": {
+        "name": "behrouz",
+        "phone": "09357797511"
+    },
+    "sun_day": {
+        "name": "amin",
+        "phone": "09361325328"
+    },
+    "sun_night": {
+        "name": "alifatahi",
+        "phone": "09365663103"
+    },
+    "mon_day": {
+        "name": "mlotfi",
+        "phone": "09331835483"
+    },
+    "mon_night": {
+        "name": "behrouz",
+        "phone": "09357797511"
+    },
+    "tue_day": {
+        "name": "amin",
+        "phone": "09361325328"
+    },
+    "tue_night": {
+        "name": "alifatahi",
+        "phone": "09365663103"
+    },
+    "wed_day": {
+        "name": "mlotfi",
+        "phone": "09331835483"
+    },
+    "wed_night": {
+        "name": "behrouz",
+        "phone": "09357797511"
+    },
+    "thu_day": {
+        "name": "amin",
+        "phone": "09361325328"
+    },
+    "thu_night": {
+        "name": "alifatahi",
+        "phone": "09365663103"
+    },
+    "fri_day": {
+        "name": "mlotfi",
+        "phone": "09331835483"
+    },
+    "fri_night": {
+        "name": "behrouz",
+        "phone": "09357797511"
+    }
+}
