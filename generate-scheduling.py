@@ -1,6 +1,5 @@
 import json
 import os
-from collections import defaultdict
 
 def load_map():
     map_file = 'map.name'
@@ -32,6 +31,7 @@ def create_schedule_manual(mapping):
 
     save_map(mapping)
     save_schedule(schedule)
+    display_schedule(schedule)
 
 def create_schedule_auto(mapping):
     schedule = {}
@@ -57,64 +57,81 @@ def create_schedule_auto(mapping):
         night_index += 1
 
     save_schedule(schedule)
+    display_schedule(schedule)
 
 def save_schedule(schedule):
     with open('schedule.json', 'w') as file:
         json.dump(schedule, file, indent=4)
         file.write('\n')
+        
+def display_schedule(schedule):
+    # ANSI color codes
+    HEADER = '\033[1;36m'  # Cyan, bold
+    DAY = '\033[1;33m'     # Yellow, bold
+    NIGHT = '\033[1;34m'   # Blue, bold
+    NAME = '\033[1;32m'    # Green, bold
+    RESET = '\033[0m'      # Reset to default
     
-    # Display schedule overview
-    display_schedule_overview(schedule)
-
-def display_schedule_overview(schedule):
+    print("\n" + HEADER + "WEEKLY TIMELINE" + RESET)
+    print(HEADER + "===============" + RESET + "\n")
+    
     days = ['sat', 'sun', 'mon', 'tue', 'wed', 'thu', 'fri']
-    day_labels = {'sat': 'Sat', 'sun': 'Sun', 'mon': 'Mon', 'tue': 'Tue', 'wed': 'Wed', 'thu': 'Thu', 'fri': 'Fri'}
+    day_names = {
+        'sat': 'Saturday',
+        'sun': 'Sunday',
+        'mon': 'Monday',
+        'tue': 'Tuesday',
+        'wed': 'Wednesday',
+        'thu': 'Thursday',
+        'fri': 'Friday'
+    }
     
-    # Calculate the maximum name length for formatting
-    max_name_length = max(len(entry['name']) for entry in schedule.values())
-    max_name_length = max(max_name_length, 8)  # Ensure minimum width for column headers
+    # Calculate shift counts for summary
+    shift_counts = {}
     
-    # Print header with a nice box
-    print("\n" + "╔" + "═"*48 + "╗")
-    print("║" + "          WEEKLY SCHEDULE OVERVIEW           " + "║")
-    print("╠" + "═"*48 + "╣")
+    # Collect all names to find max length for alignment
+    all_names = set()
+    for day in days:
+        day_person = schedule.get(f"{day}_day", {}).get('name', 'N/A')
+        night_person = schedule.get(f"{day}_night", {}).get('name', 'N/A')
+        all_names.add(day_person)
+        all_names.add(night_person)
     
-    # Print schedule table
-    header = f"║ {'DAY':<5} │ {'DAY SHIFT':<{max_name_length}} │ {'NIGHT SHIFT':<{max_name_length}} ║"
-    print(header)
-    print("╠" + "═"*5 + "═╪═" + "═"*max_name_length + "═╪═" + "═"*max_name_length + "═╣")
+    # Find max name length for padding
+    max_name_len = max(len(name) for name in all_names)
     
     for day in days:
         day_person = schedule.get(f"{day}_day", {}).get('name', 'N/A')
         night_person = schedule.get(f"{day}_night", {}).get('name', 'N/A')
-        print(f"║ {day_labels[day]:<5} │ {day_person:<{max_name_length}} │ {night_person:<{max_name_length}} ║")
+        
+        # Update shift counts
+        if day_person != 'N/A':
+            shift_counts[day_person] = shift_counts.get(day_person, {'day': 0, 'night': 0})
+            shift_counts[day_person]['day'] += 1
+            
+        if night_person != 'N/A':
+            shift_counts[night_person] = shift_counts.get(night_person, {'day': 0, 'night': 0})
+            shift_counts[night_person]['night'] += 1
+        
+        # Format with consistent padding
+        day_label = f"{day_names[day]}:"
+        day_section = f"[{DAY}Day:{RESET} {NAME}{day_person.ljust(max_name_len)}{RESET}]"
+        night_section = f"[{NIGHT}Night:{RESET} {NAME}{night_person.ljust(max_name_len)}{RESET}]"
+        
+        print(f"{day_label:<12} {day_section}  |  {night_section}")
     
-    print("╠" + "═"*5 + "═╪═" + "═"*max_name_length + "═╪═" + "═"*max_name_length + "═╣")
+    # Print summary of shift distribution
+    print("\n" + HEADER + "SHIFT SUMMARY" + RESET)
+    print(HEADER + "=============" + RESET)
     
-    # Calculate and print shift distribution summary
-    shift_counts = defaultdict(lambda: {'day': 0, 'night': 0, 'total': 0})
+    # Find max name length for summary alignment
+    max_name_len = max(len(person) for person in shift_counts.keys())
     
-    for time_block, assignment in schedule.items():
-        name = assignment['name']
-        if '_day' in time_block:
-            shift_counts[name]['day'] += 1
-        else:
-            shift_counts[name]['night'] += 1
-        shift_counts[name]['total'] += 1
-    
-    # Print shift distribution
-    print("║" + "          SHIFT DISTRIBUTION SUMMARY          " + "║")
-    print("╠" + "═"*max_name_length + "═╤═" + "═"*7 + "═╤═" + "═"*7 + "═╤═" + "═"*7 + "═╣")
-    print(f"║ {'NAME':<{max_name_length}} │ {'DAY':<7} │ {'NIGHT':<7} │ {'TOTAL':<7} ║")
-    print("╠" + "═"*max_name_length + "═╪═" + "═"*7 + "═╪═" + "═"*7 + "═╪═" + "═"*7 + "═╣")
-    
-    for name, counts in sorted(shift_counts.items(), key=lambda x: x[0]):
-        day = str(counts['day'])
-        night = str(counts['night'])
-        total = str(counts['total'])
-        print(f"║ {name:<{max_name_length}} │ {day:^7} │ {night:^7} │ {total:^7} ║")
-    
-    print("╚" + "═"*max_name_length + "═╧═" + "═"*7 + "═╧═" + "═"*7 + "═╧═" + "═"*7 + "═╝")
+    for person, counts in shift_counts.items():
+        total = counts['day'] + counts['night']
+        day_count = f"{DAY}{counts['day']} day shifts{RESET}"
+        night_count = f"{NIGHT}{counts['night']} night shifts{RESET}"
+        print(f"{NAME}{person.ljust(max_name_len)}{RESET}: {day_count.ljust(20)}, {night_count.ljust(20)} (Total: {total})")
 
 def main():
     mapping = load_map()
