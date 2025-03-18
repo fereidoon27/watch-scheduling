@@ -1,58 +1,546 @@
 {
-    "sat_day": {
-        "name": "mlotfi",
-        "phone": "09331835483"
+    "date_schedule": {
+        "2025-03-18": {
+            "weekday": "tue",
+            "day": {
+                "name": "alifatahi",
+                "phone": "09365663103"
+            },
+            "night": {
+                "name": "behrouz",
+                "phone": "09357797511"
+            }
+        },
+        "2025-03-19": {
+            "weekday": "wed",
+            "day": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            },
+            "night": {
+                "name": "amin",
+                "phone": "09361325328"
+            }
+        },
+        "2025-03-20": {
+            "weekday": "thu",
+            "day": {
+                "name": "behrouz",
+                "phone": "09357797511"
+            },
+            "night": {
+                "name": "alifatahi",
+                "phone": "09365663103"
+            }
+        },
+        "2025-03-21": {
+            "weekday": "fri",
+            "day": {
+                "name": "amin",
+                "phone": "09361325328"
+            },
+            "night": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            }
+        },
+        "2025-03-22": {
+            "weekday": "sat",
+            "day": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            },
+            "night": {
+                "name": "amin",
+                "phone": "09361325328"
+            }
+        },
+        "2025-03-23": {
+            "weekday": "sun",
+            "day": {
+                "name": "behrouz",
+                "phone": "09357797511"
+            },
+            "night": {
+                "name": "alifatahi",
+                "phone": "09365663103"
+            }
+        },
+        "2025-03-24": {
+            "weekday": "mon",
+            "day": {
+                "name": "amin",
+                "phone": "09361325328"
+            },
+            "night": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            }
+        },
+        "2025-03-25": {
+            "weekday": "tue",
+            "day": {
+                "name": "alifatahi",
+                "phone": "09365663103"
+            },
+            "night": {
+                "name": "behrouz",
+                "phone": "09357797511"
+            }
+        },
+        "2025-03-26": {
+            "weekday": "wed",
+            "day": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            },
+            "night": {
+                "name": "amin",
+                "phone": "09361325328"
+            }
+        },
+        "2025-03-27": {
+            "weekday": "thu",
+            "day": {
+                "name": "behrouz",
+                "phone": "09357797511"
+            },
+            "night": {
+                "name": "alifatahi",
+                "phone": "09365663103"
+            }
+        },
+        "2025-03-28": {
+            "weekday": "fri",
+            "day": {
+                "name": "amin",
+                "phone": "09361325328"
+            },
+            "night": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            }
+        },
+        "2025-03-29": {
+            "weekday": "sat",
+            "day": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            },
+            "night": {
+                "name": "amin",
+                "phone": "09361325328"
+            }
+        },
+        "2025-03-30": {
+            "weekday": "sun",
+            "day": {
+                "name": "behrouz",
+                "phone": "09357797511"
+            },
+            "night": {
+                "name": "alifatahi",
+                "phone": "09365663103"
+            }
+        },
+        "2025-03-31": {
+            "weekday": "mon",
+            "day": {
+                "name": "amin",
+                "phone": "09361325328"
+            },
+            "night": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            }
+        },
+        "2025-04-01": {
+            "weekday": "tue",
+            "day": {
+                "name": "alifatahi",
+                "phone": "09365663103"
+            },
+            "night": {
+                "name": "behrouz",
+                "phone": "09357797511"
+            }
+        },
+        "2025-04-02": {
+            "weekday": "wed",
+            "day": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            },
+            "night": {
+                "name": "amin",
+                "phone": "09361325328"
+            }
+        },
+        "2025-04-03": {
+            "weekday": "thu",
+            "day": {
+                "name": "behrouz",
+                "phone": "09357797511"
+            },
+            "night": {
+                "name": "alifatahi",
+                "phone": "09365663103"
+            }
+        },
+        "2025-04-04": {
+            "weekday": "fri",
+            "day": {
+                "name": "amin",
+                "phone": "09361325328"
+            },
+            "night": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            }
+        },
+        "2025-04-05": {
+            "weekday": "sat",
+            "day": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            },
+            "night": {
+                "name": "amin",
+                "phone": "09361325328"
+            }
+        },
+        "2025-04-06": {
+            "weekday": "sun",
+            "day": {
+                "name": "behrouz",
+                "phone": "09357797511"
+            },
+            "night": {
+                "name": "alifatahi",
+                "phone": "09365663103"
+            }
+        },
+        "2025-04-07": {
+            "weekday": "mon",
+            "day": {
+                "name": "amin",
+                "phone": "09361325328"
+            },
+            "night": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            }
+        },
+        "2025-04-08": {
+            "weekday": "tue",
+            "day": {
+                "name": "alifatahi",
+                "phone": "09365663103"
+            },
+            "night": {
+                "name": "behrouz",
+                "phone": "09357797511"
+            }
+        },
+        "2025-04-09": {
+            "weekday": "wed",
+            "day": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            },
+            "night": {
+                "name": "amin",
+                "phone": "09361325328"
+            }
+        },
+        "2025-04-10": {
+            "weekday": "thu",
+            "day": {
+                "name": "behrouz",
+                "phone": "09357797511"
+            },
+            "night": {
+                "name": "alifatahi",
+                "phone": "09365663103"
+            }
+        },
+        "2025-04-11": {
+            "weekday": "fri",
+            "day": {
+                "name": "amin",
+                "phone": "09361325328"
+            },
+            "night": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            }
+        },
+        "2025-04-12": {
+            "weekday": "sat",
+            "day": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            },
+            "night": {
+                "name": "amin",
+                "phone": "09361325328"
+            }
+        },
+        "2025-04-13": {
+            "weekday": "sun",
+            "day": {
+                "name": "behrouz",
+                "phone": "09357797511"
+            },
+            "night": {
+                "name": "alifatahi",
+                "phone": "09365663103"
+            }
+        },
+        "2025-04-14": {
+            "weekday": "mon",
+            "day": {
+                "name": "amin",
+                "phone": "09361325328"
+            },
+            "night": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            }
+        },
+        "2025-04-15": {
+            "weekday": "tue",
+            "day": {
+                "name": "alifatahi",
+                "phone": "09365663103"
+            },
+            "night": {
+                "name": "behrouz",
+                "phone": "09357797511"
+            }
+        },
+        "2025-04-16": {
+            "weekday": "wed",
+            "day": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            },
+            "night": {
+                "name": "amin",
+                "phone": "09361325328"
+            }
+        },
+        "2025-04-17": {
+            "weekday": "thu",
+            "day": {
+                "name": "behrouz",
+                "phone": "09357797511"
+            },
+            "night": {
+                "name": "alifatahi",
+                "phone": "09365663103"
+            }
+        },
+        "2025-04-18": {
+            "weekday": "fri",
+            "day": {
+                "name": "amin",
+                "phone": "09361325328"
+            },
+            "night": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            }
+        },
+        "2025-04-19": {
+            "weekday": "sat",
+            "day": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            },
+            "night": {
+                "name": "amin",
+                "phone": "09361325328"
+            }
+        },
+        "2025-04-20": {
+            "weekday": "sun",
+            "day": {
+                "name": "behrouz",
+                "phone": "09357797511"
+            },
+            "night": {
+                "name": "alifatahi",
+                "phone": "09365663103"
+            }
+        },
+        "2025-04-21": {
+            "weekday": "mon",
+            "day": {
+                "name": "amin",
+                "phone": "09361325328"
+            },
+            "night": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            }
+        },
+        "2025-04-22": {
+            "weekday": "tue",
+            "day": {
+                "name": "alifatahi",
+                "phone": "09365663103"
+            },
+            "night": {
+                "name": "behrouz",
+                "phone": "09357797511"
+            }
+        },
+        "2025-04-23": {
+            "weekday": "wed",
+            "day": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            },
+            "night": {
+                "name": "amin",
+                "phone": "09361325328"
+            }
+        },
+        "2025-04-24": {
+            "weekday": "thu",
+            "day": {
+                "name": "behrouz",
+                "phone": "09357797511"
+            },
+            "night": {
+                "name": "alifatahi",
+                "phone": "09365663103"
+            }
+        },
+        "2025-04-25": {
+            "weekday": "fri",
+            "day": {
+                "name": "amin",
+                "phone": "09361325328"
+            },
+            "night": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            }
+        },
+        "2025-04-26": {
+            "weekday": "sat",
+            "day": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            },
+            "night": {
+                "name": "amin",
+                "phone": "09361325328"
+            }
+        },
+        "2025-04-27": {
+            "weekday": "sun",
+            "day": {
+                "name": "behrouz",
+                "phone": "09357797511"
+            },
+            "night": {
+                "name": "alifatahi",
+                "phone": "09365663103"
+            }
+        },
+        "2025-04-28": {
+            "weekday": "mon",
+            "day": {
+                "name": "amin",
+                "phone": "09361325328"
+            },
+            "night": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            }
+        },
+        "2025-04-29": {
+            "weekday": "tue",
+            "day": {
+                "name": "alifatahi",
+                "phone": "09365663103"
+            },
+            "night": {
+                "name": "behrouz",
+                "phone": "09357797511"
+            }
+        },
+        "2025-04-30": {
+            "weekday": "wed",
+            "day": {
+                "name": "mlotfi",
+                "phone": "09331835483"
+            },
+            "night": {
+                "name": "amin",
+                "phone": "09361325328"
+            }
+        }
     },
-    "sat_night": {
-        "name": "amin",
-        "phone": "09361325328"
-    },
-    "sun_day": {
-        "name": "behrouz",
-        "phone": "09357797511"
-    },
-    "sun_night": {
-        "name": "alifatahi",
-        "phone": "09365663103"
-    },
-    "mon_day": {
-        "name": "amin",
-        "phone": "09361325328"
-    },
-    "mon_night": {
-        "name": "mlotfi",
-        "phone": "09331835483"
-    },
-    "tue_day": {
-        "name": "alifatahi",
-        "phone": "09365663103"
-    },
-    "tue_night": {
-        "name": "behrouz",
-        "phone": "09357797511"
-    },
-    "wed_day": {
-        "name": "mlotfi",
-        "phone": "09331835483"
-    },
-    "wed_night": {
-        "name": "amin",
-        "phone": "09361325328"
-    },
-    "thu_day": {
-        "name": "behrouz",
-        "phone": "09357797511"
-    },
-    "thu_night": {
-        "name": "alifatahi",
-        "phone": "09365663103"
-    },
-    "fri_day": {
-        "name": "amin",
-        "phone": "09361325328"
-    },
-    "fri_night": {
-        "name": "mlotfi",
-        "phone": "09331835483"
+    "weekly_pattern": {
+        "sat_day": {
+            "name": "mlotfi",
+            "phone": "09331835483"
+        },
+        "sat_night": {
+            "name": "amin",
+            "phone": "09361325328"
+        },
+        "sun_day": {
+            "name": "behrouz",
+            "phone": "09357797511"
+        },
+        "sun_night": {
+            "name": "alifatahi",
+            "phone": "09365663103"
+        },
+        "mon_day": {
+            "name": "amin",
+            "phone": "09361325328"
+        },
+        "mon_night": {
+            "name": "mlotfi",
+            "phone": "09331835483"
+        },
+        "tue_day": {
+            "name": "alifatahi",
+            "phone": "09365663103"
+        },
+        "tue_night": {
+            "name": "behrouz",
+            "phone": "09357797511"
+        },
+        "wed_day": {
+            "name": "mlotfi",
+            "phone": "09331835483"
+        },
+        "wed_night": {
+            "name": "amin",
+            "phone": "09361325328"
+        },
+        "thu_day": {
+            "name": "behrouz",
+            "phone": "09357797511"
+        },
+        "thu_night": {
+            "name": "alifatahi",
+            "phone": "09365663103"
+        },
+        "fri_day": {
+            "name": "amin",
+            "phone": "09361325328"
+        },
+        "fri_night": {
+            "name": "mlotfi",
+            "phone": "09331835483"
+        }
     }
 }
