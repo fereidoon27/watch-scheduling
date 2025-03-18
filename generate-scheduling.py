@@ -32,69 +32,18 @@ def get_start_date():
         
         try:
             # Parse the input date
-            return datetime.strptime(date_input, "%Y-%m-%d").date()
+            start_date = datetime.strptime(date_input, "%Y-%m-%d").date()
+            print(f"Schedule will be generated for 30 days starting from {start_date.strftime('%Y-%m-%d')}")
+            return start_date
         except ValueError:
             print("Invalid date format. Please use YYYY-MM-DD format.")
 
 def calculate_end_date(start_date):
-    """Calculate the end date (one full month from start date)"""
-    # Get the first day of the next month
-    if start_date.month == 12:
-        next_month = datetime(start_date.year + 1, 1, 1).date()
-    else:
-        next_month = datetime(start_date.year, start_date.month + 1, 1).date()
-    
-    # Find the day before the first day of the month after next
-    if next_month.month == 12:
-        end_date = datetime(next_month.year + 1, 1, 1).date() - timedelta(days=1)
-    else:
-        end_date = datetime(next_month.year, next_month.month + 1, 1).date() - timedelta(days=1)
-    
-    return end_date
+    """Calculate the end date (exactly 30 days from start date)"""
+    # Simply add 30 days to the start date
+    return start_date + timedelta(days=29)  # 29 because we want to include the start date (total 30 days)
 
-def create_schedule_manual(mapping):
-    """Create schedule manually with user input"""
-    # Get start date for the schedule
-    start_date = get_start_date()
-    end_date = calculate_end_date(start_date)
-    
-    # Create an empty schedule
-    date_schedule = {}
-    
-    # Go through each day in the period and ask for assignments
-    current_date = start_date
-    while current_date <= end_date:
-        date_str = current_date.strftime('%Y-%m-%d')
-        weekday = current_date.strftime('%a').lower()
-        weekday_full = current_date.strftime('%A')
-        
-        print(f"\n{current_date.strftime('%b %d')} ({weekday_full}):")
-        
-        # Ask for day shift
-        day_person = input(f"  Day shift: Enter name: ")
-        if day_person not in mapping:
-            phone = input(f"  Phone number for {day_person}: ")
-            mapping[day_person] = phone
-        
-        # Ask for night shift
-        night_person = input(f"  Night shift: Enter name: ")
-        if night_person not in mapping:
-            phone = input(f"  Phone number for {night_person}: ")
-            mapping[night_person] = phone
-        
-        # Add to schedule
-        date_schedule[date_str] = {
-            'weekday': weekday,
-            'day': {'name': day_person, 'phone': mapping[day_person]},
-            'night': {'name': night_person, 'phone': mapping[night_person]}
-        }
-        
-        current_date += timedelta(days=1)
-    
-    save_map(mapping)
-    save_schedule(date_schedule)
-    save_date_info(start_date, end_date)
-    display_schedule_with_dates(date_schedule, start_date, end_date)
+
 
 def create_schedule_auto(mapping):
     """Create schedule automatically with fair distribution of shifts"""
@@ -121,6 +70,7 @@ def create_fair_date_schedule(mapping, start_date, end_date):
     # Calculate ideal shifts per person
     shifts_per_person = total_shifts / len(names)
     print(f"\nFair Scheduling Analysis:")
+    print(f"- Schedule period: {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')}")
     print(f"- Total days in period: {total_days}")
     print(f"- Total shifts to assign: {total_shifts}")
     print(f"- Team members: {len(names)}")
@@ -294,16 +244,15 @@ def display_schedule_with_dates(date_schedule, start_date, end_date):
     # Initialize a string to collect the entire output
     output_text = ""
     
-    month_str = start_date.strftime("%B %Y") + " to " + end_date.strftime("%B %Y")
-    header_line = f"\n{HEADER}MONTHLY SCHEDULE{RESET}"
+    header_line = f"\n{HEADER}30-DAY SCHEDULE{RESET}"
     output_text += header_line
     print(header_line)
     
-    underline = f"{HEADER}================{RESET}"
+    underline = f"{HEADER}==============={RESET}"
     output_text += f"\n{underline}"
     print(underline)
     
-    date_range = f"{DATE}{month_str}{RESET}\n"
+    date_range = f"{DATE}{start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')}{RESET}\n"
     output_text += f"\n{date_range}"
     print(date_range)
     
@@ -410,16 +359,11 @@ def main():
     print(f"{'-'*50}")
     
     print("\nThis program will create a schedule for on-call duty.")
-    print("The schedule will include a full month of assignments.")
+    print("The schedule will include 30 days of assignments from the start date.")
     print("The output will also be saved as a colorful HTML file for mobile viewing.\n")
     
-    choice = input("Set scheduling file: 1. Manually 2. Automatically\nEnter choice: ")
-    if choice == '1':
-        create_schedule_manual(mapping)
-    elif choice == '2':
-        create_schedule_auto(mapping)
-    else:
-        print("Invalid choice")
+    # Run automatic scheduling directly
+    create_schedule_auto(mapping)
 
 if __name__ == "__main__":
     main()
